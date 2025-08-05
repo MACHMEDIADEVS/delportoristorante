@@ -1,0 +1,213 @@
+/*!
+Theme Name: Del Porto Ristorante
+Theme URI: http://underscores.me/
+Author: MACHMEDIA
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: del-porto-ristorante
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Del Porto Ristorante is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/* Variables por defecto (Tema Oscuro) */
+:root {
+  --gold: #c0a062;
+  --gold-hover: #ad8f57;
+  --txt-light: #e0e0e0; /* Texto claro */
+  --txt-muted: #adb5bd; /* Texto muted (gris) */
+  --txt-dark: #111111; /* Texto oscuro / Fondo oscuro principal */
+
+  --bg-light-hover: #f8f9fa; /* Fondo claro para hover/elementos claros */
+  --bg-dark: #111111; /* Fondo oscuro principal */
+  --bg-dark-secondary: #1e1e1e; /* Fondo oscuro secundario */
+  --bg-darker: #0a0a0a; /* Fondo aún más oscuro */
+
+  --border-dark: #343a40; /* Borde oscuro */
+  --border-light: rgba(255, 255, 255, 0.3); /* Borde claro sutil */
+  --border-light-hover: rgba(255, 255, 255, 0.5); /* Borde claro hover */
+
+  --offcanvas-txt: #212529; /* Texto del offcanvas */
+  --offcanvas-txt-secondary: #495057; /* Texto secundario del offcanvas */
+  --offcanvas-border: #dee2e6; /* Borde del offcanvas */
+  --a-visited: #69a7e4;
+}
+
+.site-main{
+  background-color: var(--bg-dark) !important;
+}
+
+/* Variables para el Tema Claro (aplicadas con .light-theme en el body) */
+body.light-theme {
+  --gold: #c0a062; /* Oro sigue siendo oro */
+  --gold-hover: #ad8f57;
+
+  --txt-light: #111111; /* Texto claro del dark theme ahora es oscuro */
+  --txt-muted: #6c757d; /* Texto muted más oscuro */
+  --txt-dark: #f8f9fa; /* Texto oscuro del dark theme ahora es claro */
+
+  --bg-light-hover: #e9ecef; /* Fondo claro para hover */
+  --bg-dark: #f8f9fa; /* Fondo principal claro */
+  --bg-dark-secondary: #e0e0e0; /* Fondo secundario claro */
+  --bg-darker: #ffffff; /* Fondo aún más claro */
+
+  --border-dark: #dee2e6; /* Borde oscuro ahora es claro */
+  --border-light: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Borde claro sutil ahora es oscuro sutil */
+  --border-light-hover: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Borde claro hover ahora es oscuro hover */
+
+  --offcanvas-txt: #f8f9fa; /* Texto del offcanvas (claro en oscuro) */
+  --offcanvas-txt-secondary: #dee2e6; /* Texto secundario del offcanvas (claro en oscuro) */
+  --offcanvas-border: #ced4da; /* Borde del offcanvas (más claro) */
+  --a-visited: #69a7e4; /* Podría mantenerse igual o ajustarse si es necesario */
+}
+
+/* LETTERS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit; /* Inherit color from body for theme mode application */
+}
+
+h1 {
+  font-size: 4.5rem !important;
+  padding-top: 1rem !important;
+}
+
+h2 {
+  font-size: 2rem !important;
+}
+
+h3 {
+  font-size: 2rem !important;
+}
+
+h4 {
+  font-size: 2.5rem !important;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--gold); /* Gold color remains constant */
+}
+
+h5 {
+  font-size: 2rem !important;
+}
+
+.text-golden {
+  color: var(--gold) !important;
+}
+
+/* BUTTONS */
+a {
+  text-decoration: none !important;
+  color: var(--gold);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--gold-hover);
+    text-decoration: underline;
+  }
+}
+
+.btn {
+  font-size: 1rem !important;
+  border-radius: 0px !important; /* All buttons have straight edges */
+}
+
+.btn-sm {
+  font-size: 0.7rem !important;
+}
+
+.btn-primary {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(
+    --txt-dark
+  ) !important; /* Text color changes based on theme mode */
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--gold-hover) !important;
+    border-color: var(--gold-hover) !important;
+    color: var(--bg-light-hover) !important;
+  }
+}
+
+.btn-success {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: var(
+    --txt-dark
+  ) !important; /* Text color changes based on theme mode */
+
+  &:hover,
+  &:focus {
+    background-color: var(--gold-hover);
+    border-color: var(--gold-hover);
+    color: var(--bg-light-hover) !important;
+  }
+}
+
+.btn-outline-primary {
+  color: var(--txt-light); /* Text color changes based on theme mode */
+  border-color: var(
+    --border-light
+  ) !important; /* Border color changes based on theme mode */
+
+  &:hover,
+  &:focus {
+    color: var(--gold) !important;
+    background-color: var(
+      --txt-light
+    ) !important;
+    border-color: var(--txt-light) !important;
+  }
+}
+
+.btn-outline-light {
+  border-color: var(
+    --border-light-hover
+  ) !important; /* Border color changes based on theme mode */
+  color: var(--txt-light);
+
+  &:hover,
+  &:focus {
+    color: var(--gold) !important;
+    background-color: var(
+      --txt-light
+    ); 
+  }
+}
+
+/* General Layout and Theme Mode Transitions */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme mode */
+}
+
+/* Agrega aquí cualquier otro estilo base que aplique a todo el tema */

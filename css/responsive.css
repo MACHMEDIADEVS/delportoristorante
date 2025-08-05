@@ -1,0 +1,348 @@
+/* RESPONSIVE - IPHONE */
+@media (max-width: 767px) {
+  /* HEADER */
+  #masthead.site-header {
+    .site-branding {
+      .custom-logo {
+        max-height: 2em;
+      }
+    }
+
+    .site-header-toggler {
+      padding: 0.3rem 0.5rem;
+    }
+
+    .site-header-actions {
+      .site-header-action-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.65rem;
+      }
+    }
+
+    .site-header-action-btn-phone-mobile {
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  /* Offcanvas Menu */
+  .site-offcanvas-menu#offcanvasMainMenu {
+    background-color: var(--bg-dark);
+    color: var(--bg-light-hover) !important;
+
+    a {
+      color: var(--bg-light-hover) !important;
+    }
+
+    .offcanvas-header {
+      h5 {
+        font-size: 1.2rem !important;
+      }
+
+      .offcanvas-title {
+        font-size: 1.1rem;
+      }
+    }
+
+    .offcanvas-body {
+      padding: 1.25rem;
+    }
+  }
+
+  /* Home - Hero Section */
+  #hero-front-page.hero-video-section {
+    height: 102dvh;
+    margin-top: -65px;
+
+    h1 {
+      padding-top: 0.2rem !important;
+      line-height: 2rem !important;
+    }
+    h2 {
+      line-height: 3rem !important;
+      margin-bottom: 0rem !important;
+    }
+
+    .hero-text-content {
+      text-align: center;
+
+      .hero-subtitle {
+        font-size: 0.8rem !important;
+      }
+
+      .hero-tagline {
+        font-size: 1rem !important;
+      }
+
+      .hero-actions {
+        .btn {
+          padding: 0.7rem 1.5rem;
+          font-size: 0.8rem;
+          min-width: unset;
+        }
+      }
+    }
+  }
+  #hero-front-page.hero-video-section {
+    & .hero-text-content {
+      .hero-tagline {
+        line-height: 2rem !important;
+        margin-bottom: 0rem !important;
+      }
+    }
+  }
+
+  /* Home - Services Section */
+  #services-section-desktop {
+    display: none;
+  }
+
+  #services-section-mobile {
+    display: block;
+  }
+
+  h4 {
+    font-size: 2rem !important;
+  }
+}
+
+/* RESPONSIVE - IPAD */
+@media (max-width: 1024px) {
+  h4 {
+    font-size: 2rem !important;
+  }
+  /* HEADER */
+  #masthead.site-header {
+    margin-bottom: -8dvh;
+
+    .container-fluid {
+      .row {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .site-branding {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      z-index: 10;
+
+      .custom-logo {
+        max-height: 2.5em;
+      }
+    }
+
+    .site-header-toggler {
+      padding: 0.4rem 0.6rem;
+    }
+
+    .site-header-actions {
+      .site-header-action-btn {
+        padding: 0.5rem 0.7rem;
+      }
+    }
+
+    .site-header-action-btn-phone-mobile {
+      padding: 0.4rem 0.6rem;
+      border-color: var(--golden-color);
+      color: var(--text-light);
+      background-color: transparent;
+
+      svg {
+        vertical-align: -0.1em;
+        width: 1em;
+        height: 1em;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--golden-color);
+        color: var(--bg-dark);
+      }
+    }
+  }
+
+  /* Home - Hero Section */
+  #hero-front-page.hero-video-section {
+    height: 102dvh;
+    margin-top: -65px;
+
+    h1 {
+      line-height: 1.2rem !important;
+    }
+
+    .hero-text-content {
+      text-align: center;
+
+      .hero-title {
+        font-size: 2.5rem !important;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem !important;
+      }
+
+      .hero-tagline {
+        font-size: 1rem !important;
+        margin-bottom: 0rem !important;
+      }
+
+      .hero-actions {
+        justify-content: center;
+
+        .btn {
+          padding: 0.7rem 1.8rem;
+          font-size: 0.85rem;
+          min-width: unset;
+        }
+      }
+    }
+  }
+
+  #hero-front-page.hero-video-section {
+    & .hero-text-content {
+      .hero-actions {
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  /* Home - Services Section */
+  #services-section-desktop {
+    .dpr-service-slide {
+      .dpr-flex-content {
+        .dpr-flex-title {
+          .title-service-home {
+            font-size: 2rem !important;
+            font-weight: 600 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .events-carousel-section {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none; /* Oculta los botones de navegación en dispositivos más pequeños */
+    }
+  }
+}
+
+/* RESPONSIVE - IPHONE & IPAD */
+@media (max-width: 991px) {
+}
+
+/* RESPONSIVE - IPHONE */
+@media (max-width: 767px) {
+  .google-reviews-carousel-section {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+
+  /* FOOTER */
+  .site-footer {
+    .footer-image-col {
+      display: none;
+    }
+  }
+  #floating-app-menu {
+    width: 100vw;
+    bottom: 0px;
+    max-height: 8vh;
+    border-radius: 0px;
+    padding: 0.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    .nav-menu {
+      gap: 0.2rem;
+      justify-content: space-evenly;
+
+      .menu-item {
+        a {
+          height: 5vh !important;
+        }
+      }
+    }
+
+    ul {
+      margin: 0px !important;
+
+      li {
+        font-size: 1rem !important;
+        margin: 0px !important;
+
+        a {
+          font-size: 1rem !important;
+          margin: 0px !important;
+        }
+      }
+    }
+  }
+}
+
+/* RESPONSIVE - IPAD */
+@media (max-width: 991px) {
+  .google-reviews-carousel-section {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+
+  /* FOOTER */
+  .site-footer {
+    .footer-content-col {
+      padding: 0.5rem;
+    }
+    .footer-image-col {
+      display: none;
+    }
+  }
+}
+
+/* RESPONSIVE - IPHONE */
+@media (max-width: 767px) {
+  .book-your-event-hero {
+    .hero-content {
+      padding-left: 5vw;
+      text-align: center;
+
+      .col-lg-6,
+      .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .hero-image-overlay {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+/* RESPONSIVE - IPAD */
+@media (max-width: 991px) {
+  .book-your-event-hero {
+    .hero-content {
+      padding-left: 5vw;
+    }
+  }
+}

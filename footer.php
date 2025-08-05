@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * The template for displaying the footer
+ *
+ * @package Del_Porto_Ristorante
+ */
+?>
+
+<footer id="colophon" class="site-footer">
+	<div class="footer-content-wrapper">
+		<div class="row g-2 p-4">
+			<!-- BRAND -->
+			<div class="col-lg-3 footer-content-col">
+				<div class="footer-grid">
+					<div class="footer-block footer-contact-info">
+						<?php if (function_exists('the_custom_logo')) {
+							the_custom_logo();
+						} ?>
+					</div>
+				</div>
+			</div>
+			<!-- INFO -->
+			<div class="col-lg-9 footer-content-col">
+				<div class="footer-grid">
+					<div class="col-auto">
+						<h5 class="widget-title text-light"><?php esc_html_e('Benvenuti alla Famiglia', 'del-porto-ristorante'); ?></h5>
+						<p class="text-golden"><?php esc_html_e('An authentic Italian experience where every dish tells a story of tradition, flavor, and family.', 'del-porto-ristorante'); ?></p>
+
+						<div class="social-and-copyright">
+							<?php
+							/* Menú Social Footer */
+							if (has_nav_menu('social-footer-menu')) {
+								wp_nav_menu(array(
+									'theme_location' => 'social-footer-menu',
+									'container'      => 'nav',
+									'container_class' => 'footer-social-nav',
+									'menu_class'     => 'footer-social-menu d-flex list-unstyled',
+									'depth'          => 1,
+									'link_before'    => '<span class="screen-reader-text">',
+									'link_after'     => '</span>',
+									'walker'         => new WP_Bootstrap_Navwalker(),
+								));
+							}
+							?>
+
+						</div>
+					</div>
+
+					<div class="col-auto">
+						<h5 class="widget-title text-light"><?php esc_html_e('Contact Us', 'del-porto-ristorante'); ?></h5>
+						<p class="text-golden">
+							<a href="mailto:delportorestaurant@gmail.com">delportorestaurant@gmail.com</a><br>
+							<a href="tel:+19084098424">(908) 409-8424</a><br>
+							91 Elizabeth Ave, Elizabeth, NJ 07206
+						</p>
+					</div>
+
+					<div class="col-auto">
+						<h5 class="widget-title text-light"><?php esc_html_e('Explore', 'del-porto-ristorante'); ?></h5>
+						<?php
+						/* Menú Footer */
+						if (has_nav_menu('footer-menu')) {
+							wp_nav_menu(array(
+								'theme_location' => 'footer-menu',
+								'container'      => 'ul',
+								'menu_class'     => 'footer-links list-unstyled',
+								'depth'          => 1,
+								'walker'         => new WP_Bootstrap_Navwalker(),
+							));
+						}
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+
+<div class="container-fluid bg-dark text-center py-2">
+	<div class="container text-white">
+		<p class="copyright-text">
+			<?php esc_html_e('Powered by', 'del-porto-ristorante'); ?> <a href="https://machmedianyc.com" target="_blank" rel="noopener"><?php esc_html_e('MACHMEDIA', 'del-porto-ristorante'); ?></a> &copy; <?php echo esc_html(date('Y')); ?> <?php bloginfo('name'); ?>.
+		</p>
+	</div>
+</div>
+
+<?php if (has_nav_menu('floating-menu')) : ?>
+	<nav id="floating-app-menu" class="floating-app-menu fixed-bottom">
+		<?php
+		wp_nav_menu(array(
+			'theme_location' => 'floating-menu',
+			'container'      => false,
+			'menu_class'     => 'nav nav-pills justify-content-around',
+			'depth'          => 1,
+			'walker'         => new WP_Bootstrap_Navwalker(),
+		));
+		?>
+	</nav>
+<?php endif;
+wp_footer(); ?>
+</body>
+
+</html>
