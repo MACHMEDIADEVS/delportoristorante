@@ -67,8 +67,78 @@
 	<meta name="twitter:image" content="<?php echo esc_url($og_image_url); ?>" />
 </head>
 
+<!-- PRELOADER -->
+<style>
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+			opacity: 0.8;
+		}
+
+		50% {
+			transform: scale(1.05);
+			opacity: 1;
+		}
+
+		100% {
+			transform: scale(1);
+			opacity: 0.8;
+		}
+	}
+
+	#page-preloader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--bg-dark);
+		z-index: 99999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.5s ease, visibility 0.5s ease;
+	}
+
+	#page-preloader.preloader-hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	#page-preloader .preloader-logo {
+		animation: pulse 2s infinite ease-in-out;
+	}
+
+	#page-preloader .preloader-logo img {
+		max-width: 150px;
+		height: auto;
+	}
+
+	#page-preloader .preloader-logo h1 {
+		color: var(--txt-light);
+		font-size: 2rem;
+	}
+</style>
+
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+
+	<div id="page-preloader">
+		<div class="preloader-logo">
+			<?php
+			$custom_logo_id = get_theme_mod('custom_logo');
+			$logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+			if (has_custom_logo()) {
+				echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
+			} else {
+				echo '<h1>' . get_bloginfo('name') . '</h1>';
+			}
+			?>
+		</div>
+	</div>
+	
 	<div id="page" class="site">
 
 

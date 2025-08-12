@@ -17,7 +17,7 @@
 		bottom: 20px;
 		left: 50%;
 		transform: translateX(-50%);
-		z-index: 5;
+		z-index: 150;
 		background: rgba(25, 25, 25, 0.7);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
@@ -185,5 +185,40 @@
 <?php endif;
 wp_footer(); ?>
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const preloader = document.getElementById('page-preloader');
+		if (!preloader) return;
+
+		// Oculta el preloader después de 1.5 segundos
+		setTimeout(function() {
+			preloader.classList.add('preloader-hidden');
+		}, 1500);
+
+		// Muestra el preloader al hacer clic en enlaces internos
+		const internalLinks = document.querySelectorAll('a[href^="<?php echo esc_url(home_url('/')); ?>"]:not([target="_blank"]):not([data-bs-toggle]):not([href^="#"])');
+
+		internalLinks.forEach(link => {
+			link.addEventListener('click', function(event) {
+				const href = this.getAttribute('href');
+				if (href && !href.startsWith('#')) {
+					event.preventDefault();
+					preloader.classList.remove('preloader-hidden');
+					setTimeout(function() {
+						window.location.href = href;
+					}, 500);
+				}
+			});
+		});
+
+		// Asegura que el preloader desaparezca al navegar hacia atrás
+		window.onpageshow = function(event) {
+			if (event.persisted) {
+				preloader.classList.add('preloader-hidden');
+			}
+		};
+	});
+</script>
 
 </html>
