@@ -251,40 +251,7 @@
       display: none;
     }
   }
-  #floating-app-menu {
-    width: 100vw;
-    bottom: 0px;
-    max-height: 8vh;
-    border-radius: 0px;
-    padding: 0.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 
-    .nav-menu {
-      gap: 0.2rem;
-      justify-content: space-evenly;
-
-      .menu-item {
-        a {
-          height: 5vh !important;
-        }
-      }
-    }
-
-    ul {
-      margin: 0px !important;
-
-      li {
-        font-size: 1rem !important;
-        margin: 0px !important;
-
-        a {
-          font-size: 1rem !important;
-          margin: 0px !important;
-        }
-      }
-    }
-  }
 }
 
 /* RESPONSIVE - IPAD */

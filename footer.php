@@ -7,6 +7,90 @@
  */
 ?>
 
+<style>
+	/*
+	 * # FLOATING MENU #
+	 * ----------------------------------------------------
+	 */
+	#floating-app-menu {
+		position: fixed;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 5;
+		background: rgba(25, 25, 25, 0.7);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-radius: 0px;
+		padding: 0.5rem;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+
+		.nav-pills {
+			.nav-item {
+				.nav-link {
+					color: var(--txt-light);
+					text-transform: uppercase;
+					font-weight: bold;
+					transition: background-color 0.3s ease;
+					padding: 0.5rem 1rem;
+					border-radius: 0;
+				}
+
+				.nav-link:hover {
+					background-color: var(--bg-dark);
+					color: var(--golden-color);
+				}
+
+				&.current-menu-item>a {
+					background-color: var(--gold);
+					color: var(--bg-light-hover);
+				}
+			}
+		}
+	}
+
+	footer {
+		z-index: 10;
+	}
+
+	@media (max-width: 768px) {
+
+		/* FOOTER */
+		#floating-app-menu {
+			width: 100vw;
+			bottom: 0px;
+			max-height: 8vh;
+			border-radius: 0px;
+			padding: 0.5rem;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+
+			.nav-pills {
+				gap: 0.2rem;
+				justify-content: space-evenly;
+			}
+
+			ul {
+				margin: 0px !important;
+
+				li {
+					font-size: 1rem !important;
+					margin: 0px !important;
+
+					a {
+						font-size: 1rem !important;
+						margin: 0px !important;
+					}
+				}
+			}
+		}
+	}
+</style>
+
+<?php get_template_part('template-parts/navigation', 'floating'); ?>
+<?php wp_footer(); ?>
+
 <footer id="colophon" class="site-footer">
 	<div class="footer-content-wrapper">
 		<div class="row g-2 p-4">
@@ -75,15 +159,15 @@
 			</div>
 		</div>
 	</div>
-</footer>
-</div>
-
-<div class="container-fluid bg-dark text-center py-2">
-	<div class="container text-white">
-		<p class="copyright-text">
-			<?php esc_html_e('Powered by', 'del-porto-ristorante'); ?> <a href="https://machmedianyc.com" target="_blank" rel="noopener"><?php esc_html_e('MACHMEDIA', 'del-porto-ristorante'); ?></a> &copy; <?php echo esc_html(date('Y')); ?> <?php bloginfo('name'); ?>.
-		</p>
+	<div class="container-fluid bg-dark text-center py-2">
+		<div class="container text-white developer-vbar">
+			<p class="copyright-text">
+				<?php esc_html_e('Powered by', 'del-porto-ristorante'); ?> <a href="https://machmedianyc.com" target="_blank" rel="noopener"><?php esc_html_e('MACHMEDIA', 'del-porto-ristorante'); ?></a> &copy; <?php echo esc_html(date('Y')); ?> <?php bloginfo('name'); ?>.
+			</p>
+		</div>
 	</div>
+
+</footer>
 </div>
 
 <?php if (has_nav_menu('floating-menu')) : ?>
