@@ -20,8 +20,8 @@ $buttons_hero = get_field('buttons_hero');
 <section id="hero-front-page" class="hero-video-section">
     <div class="hero-video-bg-container">
         <?php if ($video_url) : ?>
-            <video class="hero-video-element" autoplay muted loop playsinline>
-                <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+            <video class="hero-video-element" autoplay muted loop playsinline poster="<?php echo esc_url($image_url); ?>">
+                <source src="<?php echo esc_url($video_url); ?>" type="video/webm">
                 <?php esc_html_e('Your browser does not support the video tag.', 'del-porto-ristorante'); ?>
             </video>
         <?php else : ?>

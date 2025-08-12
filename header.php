@@ -70,7 +70,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'del-porto-ristorante'); ?></a>
+
 
 		<header id="masthead" class="site-header sticky-top">
 			<div class="container-fluid px-md-4">
@@ -84,7 +84,7 @@
 							</button>
 
 							<?php
-							$phone_number_display = get_theme_mod('del_porto_phone_number', '+1 908 409 8423');
+							$phone_number_display = get_theme_mod('del_porto_phone_number', 'BOOK VENUE');
 							$phone_number_link    = preg_replace('/\s+/', '', $phone_number_display);
 							?>
 							<a href="tel:<?php echo esc_attr($phone_number_link); ?>" class="btn btn-sm btn-outline-primary d-md-none site-header-action-btn site-header-action-btn-phone-mobile text-white" aria-label="<?php esc_attr_e('Call us', 'del-porto-ristorante'); ?>">
@@ -137,9 +137,20 @@
 		</header>
 
 		<div class="offcanvas offcanvas-start site-offcanvas-menu" tabindex="-1" id="offcanvasMainMenu" aria-labelledby="offcanvasMainMenuLabel">
-			<div class="offcanvas-header">
-				<h5 id="offcanvasMainMenuLabel" class="offcanvas-title mb-0"><?php bloginfo('name'); ?></h5>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close menu', 'del-porto-ristorante'); ?>"></button>
+			<div class="offcanvas-header text-center position-relative">
+				<div class="position-absolute w-100 start-0">
+					<?php
+					if (has_custom_logo()) {
+						the_custom_logo();
+					} else {
+						// En caso de que no haya logo, muestra el título de la web como fallback
+					?>
+						<h5 id="offcanvasMainMenuLabel" class="offcanvas-title mb-0"><?php bloginfo('name'); ?></h5>
+					<?php
+					}
+					?>
+				</div>
+				<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close menu', 'del-porto-ristorante'); ?>"></button>
 			</div>
 			<div class="offcanvas-body">
 				<?php
@@ -154,12 +165,12 @@
 					)
 				);
 				?>
-				<div class="offcanvas-footer mt-auto pt-3 border-top border-offcanvas-border">
+				<div class="offcanvas-footer mt-auto pt-3 border-top border-offcanvas-border text-center">
 					<p class="text-white small"><?php esc_html_e('Follow Us:', 'del-porto-ristorante'); ?></p>
-					<div class="social-icons">
-						<a href="#" class="text-offcanvas-txt-secondary me-2"><i class="bi bi-facebook fs-4"></i></a>
-						<a href="#" class="text-offcanvas-txt-secondary me-2"><i class="bi bi-instagram fs-4"></i></a>
-						<a href="#" class="text-offcanvas-txt-secondary me-2"><i class="bi bi-twitter fs-4"></i></a>
+					<div class="social-icons d-flex gap-3 justify-content-center">
+						<a href="https://www.facebook.com/delportoristorantenj" class="text-offcanvas-txt-secondary"><i class="bi bi-facebook fs-4"></i></a>
+						<a href="https://www.instagram.com/delportoitalianristorante" class="text-offcanvas-txt-secondary"><i class="bi bi-instagram fs-4"></i></a>
+						<a href="https://www.tiktok.com/@delportoristorante" class="text-offcanvas-txt-secondary"><i class="bi bi-tiktok fs-4"></i></a>
 					</div>
 				</div>
 			</div>

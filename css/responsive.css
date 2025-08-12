@@ -28,6 +28,7 @@
   .site-offcanvas-menu#offcanvasMainMenu {
     background-color: var(--bg-dark);
     color: var(--bg-light-hover) !important;
+    width: 100vw;
 
     a {
       color: var(--bg-light-hover) !important;
@@ -343,6 +344,20 @@
   .book-your-event-hero {
     .hero-content {
       padding-left: 5vw;
+    }
+  }
+}
+
+/*
+ * # CONTACT & JOT PAGE RESPONSIVE #
+ * ----------------------------------------------------
+ */
+@media (max-width: 991px) {
+  .contact-page-container {
+    .contact-image {
+      img {
+        max-height: 300px;
+      }
     }
   }
 }

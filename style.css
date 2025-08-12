@@ -121,6 +121,12 @@ h5 {
   color: var(--gold) !important;
 }
 
+@media (max-width: 991px) {
+  h1{
+    font-size: 3rem !important;
+  }
+}
+
 /* BUTTONS */
 a {
   text-decoration: none !important;

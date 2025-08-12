@@ -8,7 +8,6 @@
 
 $event_id = get_the_ID();
 $flyer_event = get_field('flyer_event', $event_id);
-// Se obtiene el grupo 'main_data' y luego el campo de la fecha de su interior.
 $main_data = get_field('main_data', $event_id);
 $date_hour_event = !empty($main_data['date_hour_event']) ? $main_data['date_hour_event'] : '';
 $default_event_image = get_template_directory_uri() . '/assets/images/delportoristorante.webp';
@@ -16,13 +15,23 @@ $default_event_image = get_template_directory_uri() . '/assets/images/delportori
 // Nueva lógica para procesar la fecha de forma segura
 $month = '';
 $day = '';
+$button_text = __('Reserve now', 'del-porto-ristorante');
+$button_class = 'btn-primary';
+$button_disabled = '';
+
 if ($date_hour_event) {
     try {
-        // Se corrige el formato para que coincida con el Date Picker de ACF (m/d/Y)
         $date_object = DateTime::createFromFormat('m/d/Y', $date_hour_event);
         if ($date_object) {
             $month = $date_object->format('M');
             $day = $date_object->format('d');
+            
+            // Comparamos si la fecha del evento es anterior a la fecha actual
+            if ($date_object < new DateTime()) {
+                $button_text = __('Finished', 'del-porto-ristorante');
+                $button_class = 'btn-secondary';
+                $button_disabled = 'aria-disabled="true"';
+            }
         }
     } catch (Exception $e) {
         // En caso de error, los valores se mantienen vacíos
@@ -43,7 +52,9 @@ $image_src = has_post_thumbnail($event_id) ? get_the_post_thumbnail_url($event_i
     <div class="card-body rounded-0 d-flex flex-column justify-content-between">
         <h5 class="card-title text-center"><?php echo nl2br(get_the_title()); ?></h5>
         <div class="mt-auto">
-            <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-primary w-100 fw-bold" style="text-transform: uppercase;"><?php esc_html_e('Reserve now', 'del-porto-ristorante'); ?></a>
+            <a href="<?php the_permalink(); ?>" class="btn btn-sm <?php echo esc_attr($button_class); ?> w-100 fw-bold" style="text-transform: uppercase;" <?php echo $button_disabled; ?>>
+                <?php echo esc_html($button_text); ?>
+            </a>
         </div>
     </div>
 </div>

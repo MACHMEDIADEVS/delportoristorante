@@ -10,22 +10,21 @@ $section_description = get_field('sctn_description_menu');
 $button_text = get_field('txt_bttn_menu');
 $button_link = get_field('url_button_menu');
 
-// La consulta ha sido optimizada para filtrar y ordenar directamente por los campos de ACF.
 $menus_query = new WP_Query(array(
     'post_type'      => 'menu',
-    'posts_per_page' => 8, // Limitar a 8 elementos directamente en la consulta
+    'posts_per_page' => 8,
     'post_status'    => 'publish',
     'meta_query'     => array(
         array(
             'key'     => 'homepage_carta',
-            'value'   => 1, // '1' para campos booleanos true
+            'value'   => 1,
             'compare' => '=',
             'type'    => 'NUMERIC'
         )
     ),
     'orderby'        => 'meta_value_num',
-    'order'          => 'ASC', // Ordenar de menor a mayor
-    'meta_key'       => 'order_frontpage', // El campo numérico por el cual ordenar
+    'order'          => 'ASC', 
+    'meta_key'       => 'order_frontpage',
 ));
 ?>
 
