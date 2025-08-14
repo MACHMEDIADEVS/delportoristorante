@@ -2,8 +2,26 @@
 
 /**
  * Template Name: Catering
+ *
+ * @package Del_Porto_Ristorante
  */
+
 get_header();
+
+// Obtener los campos de ACF
+$info_catering = get_field('info-catering');
+$title_page_h1 = $info_catering['title_page_h1'] ?? '';
+$subtitle_text_h3 = $info_catering['subtitle_text_h3'] ?? '';
+$editor_description_page = $info_catering['editor_description_page'] ?? '';
+$cards_services = $info_catering['cards_services'] ?? [];
+
+$info_contact_catering = get_field('info_contact_catering');
+$email_dpr_link = $info_contact_catering['email_dpr_link'] ?? '';
+$number_phone_dpr = $info_contact_catering['number_phone_dpr'] ?? '';
+$buttons_catering_cta = $info_contact_catering['buttons_catering_cta'] ?? [];
+
+$closing_text_catering = get_field('closing_text_catering');
+$banner_lateral_url = get_field('banner_lateral');
 ?>
 
 <style>
@@ -11,75 +29,45 @@ get_header();
    # Estilos para la Plantilla de Página "Catering"
    -------------------------------------------------------------- */
 
-    /* --- INICIO: CÓDIGO DE ANIMACIÓN AÑADIDO --- */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* --- FIN: CÓDIGO DE ANIMACIÓN AÑADIDO --- */
-
     #page-catering-template {
         color: var(--txt-light);
 
         .row {
             min-height: calc(100vh - 6em);
-            /* Altura completa menos el header */
         }
 
         .catering-content-col {
-            background-color: var(--bg-light-hover);
-            color: var(--txt-dark);
+            background-color: var(--bg-dark);
+            color: var(--txt-light);
             padding: 5rem 4rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
 
-            /* --- INICIO: CÓDIGO DE ANIMACIÓN AÑADIDO --- */
-            /* Aplicar animación a los elementos principales */
-            .catering-intro,
-            .catering-features,
-            .catering-cta,
-            .catering-closing {
+            &>div {
                 opacity: 0;
-                /* Ocultos al inicio */
                 animation: fadeInUp 0.8s ease-out forwards;
             }
-
-            /* --- FIN: CÓDIGO DE ANIMACIÓN AÑADIDO --- */
-
 
             .catering-intro {
                 margin-bottom: 2.5rem;
                 animation-delay: 0.2s;
-                /* Retraso escalonado */
 
                 h1 {
                     font-size: 3rem;
                     font-weight: 700;
                     line-height: 1.2;
-                    color: var(--txt-light);
+                    color: var(--golden-color);
                     margin-bottom: 1rem;
                 }
 
                 .motto {
-                    font-family: 'Times New Roman', Times, serif;
-                    /* O una fuente cursiva elegante */
-                    font-style: italic;
-                    font-size: 1.3rem;
-                    color: var(--gold);
+                    font-size: 1.6rem;
                     margin-bottom: 2rem;
                 }
 
                 .description {
-                    color: var(--txt-dark);
+                    color: var(--txt-light);
                     line-height: 1.8;
                 }
             }
@@ -87,7 +75,6 @@ get_header();
             .catering-features {
                 margin-bottom: 2.5rem;
                 animation-delay: 0.4s;
-                /* Retraso escalonado */
 
                 .menu-grid {
                     display: grid;
@@ -105,16 +92,16 @@ get_header();
 
                 .tray-guide {
                     text-align: center;
-                    color: var(--bg-dark-secondary);
+                    color: var(--txt-muted);
                     margin-bottom: 2rem;
 
                     strong {
-                        color: var(--offcanvas-txt-secondary);
+                        color: var(--txt-light);
                     }
                 }
 
                 .notice-bar {
-                    background-color: #111;
+                    background-color: var(--bg-darker);
                     border: 1px solid var(--border-dark);
                     color: var(--txt-light);
                     padding: 0.75rem;
@@ -130,12 +117,11 @@ get_header();
             }
 
             .catering-cta {
-                background-color: #111;
+                background-color: var(--bg-darker);
                 border: 1px solid var(--border-dark);
                 padding: 2rem;
                 text-align: center;
                 animation-delay: 0.6s;
-                /* Retraso escalonado */
 
                 .contact-info {
                     margin-bottom: 1.5rem;
@@ -150,15 +136,13 @@ get_header();
                         text-decoration: none;
 
                         &:hover {
-                            color: var(--gold);
+                            color: var(--golden-color);
                         }
                     }
                 }
 
                 .cta-buttons .btn {
                     margin: 0.5rem;
-
-                    /* --- INICIO: CÓDIGO DE ANIMACIÓN AÑADIDO (GLOSS) --- */
                     position: relative;
                     overflow: hidden;
 
@@ -178,8 +162,6 @@ get_header();
                     &:hover::before {
                         opacity: 1;
                     }
-
-                    /* --- FIN: CÓDIGO DE ANIMACIÓN AÑADIDO (GLOSS) --- */
                 }
             }
 
@@ -189,18 +171,47 @@ get_header();
                 font-style: italic;
                 color: var(--txt-muted);
                 animation-delay: 0.8s;
-                /* Retraso escalonado */
             }
         }
 
         .catering-image-col {
-            background-image: url('<?php echo get_template_directory_uri() . '/assets/images/delportoristorante.webp'; ?>');
             background-size: cover;
             background-position: center;
             min-height: 500px;
         }
+    }
 
-        @media (max-width: 991.98px) {
+    .accordion {
+        .accordion-item {
+            border: 1px solid var(--border-dark);
+
+            .accordion-header {
+                .accordion-button {
+                    background-color: var(--bg-darker);
+                    color: var(--txt-light);
+                    font-weight: bold;
+
+                    &:not(.collapsed) {
+                        color: var(--golden-color);
+                        background-color: var(--bg-darker);
+                    }
+
+                    &:focus {
+                        box-shadow: none;
+                        border-color: var(--golden-color);
+                    }
+                }
+            }
+
+            .accordion-body {
+                background-color: var(--bg-dark);
+                color: var(--txt-light);
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        #page-catering-template {
             .catering-content-col {
                 padding: 4rem 1.5rem;
 
@@ -217,16 +228,33 @@ get_header();
         <div class="row g-0">
             <div class="col-lg-7 catering-content-col">
 
-                <div class="catering-intro pt-5">
-                    <h1 style="color: var(--gold);">Catering at Your Location<br><span style="font-weight: 600; color:var(--txt-dark)">Authentic Italian, Unmatched Service</span> </h1>
-                    <p class="">Buon cibo. Buona compagnia. Bellissimo evento.</p>
-                    <div class="description">
-                        <p>Del Porto Italian Ristorante offers full-service catering that brings the heart of Italian cuisine directly to your celebration. Whether you're hosting a corporate gathering, private dinner, wedding, or holiday party, we provide freshly prepared Italian dishes, customizable menus, and professional service. Our team of trained servers and bartenders ensures your event is seamless and memorable.</p>
-                        <p>Choose from a variety of antipasti, homemade pastas, entrees like Chicken Parmigiana and Braised Short Ribs, and classic desserts such as Tiramisu and Cannoli. We accommodate groups of all sizes, and offer half and full tray options to suit your guest count. Let us handle the food and service—so you can focus on enjoying your guests.</p>
+                <div class="catering-intro pt-5 animate__animated animate__fadeInUp">
+                    <?php if ($title_page_h1) : ?>
+                        <h1 class="text-golden"><?php echo esc_html($title_page_h1); ?></h1>
+                    <?php endif; ?>
+                    <?php if ($subtitle_text_h3) : ?>
+                        <h2 class="motto text-light"><?php echo esc_html($subtitle_text_h3); ?></h2>
+                    <?php endif; ?>
+                    <div class="description animate__animated animate__fadeInUp animate__delay-0-3s">
+                        <?php echo $editor_description_page; ?>
                     </div>
                 </div>
 
-                <div class="catering-features">
+                <div class="catering-features animate__animated animate__fadeInUp animate__delay-0-5s">
+                    <?php if ($cards_services) : ?>
+                        <div class="menu-grid row g-3">
+                            <?php foreach ($cards_services as $service) : ?>
+                                <div class="col-lg-4">
+                                    <div class="card bg-dark text-light border-golden h-100">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title text-golden"><?php echo esc_html($service['title_service']); ?></h5>
+                                            <p class="card-text small"><?php echo esc_html($service['description_service']); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <p class="tray-guide"><strong>Half Tray:</strong> Serves ~8 people | <strong>Full Tray:</strong> Serves ~16 people</p>
                     <div class="notice-bar">
                         <span>Free Delivery</span> |
@@ -235,32 +263,66 @@ get_header();
                     </div>
                 </div>
 
-                <div class="catering-cta">
+                <div class="catering-cta animate__animated animate__fadeInUp animate__delay-0-7s">
                     <div class="contact-info">
-                        <p><strong>Call Now to Place Your Order:</strong> <a href="tel:+19084098424">(908) 409-8424</a></p>
-                        <p><strong>Email Us:</strong> <a href="mailto:delportorestaurant@gmail.com">delportorestaurant@gmail.com</a></p>
+                        <?php if ($number_phone_dpr) : ?>
+                            <p><strong>Call Now to Place Your Order:</strong> <a href="tel:<?php echo esc_attr($number_phone_dpr); ?>"><?php echo esc_html($number_phone_dpr); ?></a></p>
+                        <?php endif; ?>
+                        <?php if ($email_dpr_link) : ?>
+                            <p><strong>Email Us:</strong> <a href="mailto:<?php echo esc_attr($email_dpr_link); ?>"><?php echo esc_html($email_dpr_link); ?></a></p>
+                        <?php endif; ?>
                     </div>
                     <div class="cta-buttons">
-                        <a href="https://www.toasttab.com/invoice/lead?rx=19209e5d-b110-4f2c-a889-a719850ed967&ot=4bc47384-d489-457a-bdc5-6bc795792d08" class="btn btn-primary">INQUIRY NOW</a>
-                        <a href="#-sample-menu.pdf" class="btn btn-outline-primary">Download Sample Menu</a>
+                        <?php foreach ($buttons_catering_cta as $button) : ?>
+                            <a href="<?php echo esc_url($button['link_button']); ?>" class="btn btn-primary" data-text="<?php echo esc_attr($button['text_button']); ?>"><?php echo esc_html($button['text_button']); ?></a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
-                <div class="catering-closing">
-                    <p>At Del Porto, every catered event is a reflection of our passion for Italian food and hospitality. From intimate gatherings to large celebrations, let us create an unforgettable dining experience for you and your guests — wherever you are.</p>
-                </div>
-
+                <?php if ($closing_text_catering) : ?>
+                    <div class="catering-closing animate__animated animate__fadeInUp animate__delay-0-9s">
+                        <p><?php echo esc_html($closing_text_catering); ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
 
-            <div class="col-lg-5 d-none d-lg-block catering-image-col">
+            <div class="col-lg-5 d-none d-lg-block catering-image-col" style="background-image: url('<?php echo esc_url($banner_lateral_url); ?>');">
             </div>
         </div>
     </div>
-</main>
 
-<?php
-get_footer();
-?>
+    <!-- FAQs -->
+    <section class="faq-section mx-lg-5 py-5">
+        <h2 class="text-golden text-center mb-4"><?php esc_html_e('FAQs', 'del-porto-ristorante'); ?></h2>
+        <div class="accordion accordion-flush" id="faqAccordion">
+            <?php
+            if (have_rows('question')) :
+                $index = 0;
+                while (have_rows('question')) : the_row();
+                    $question_text = get_sub_field('question_catering');
+                    $answer_text = get_sub_field('answers_catering');
+            ?>
+                    <div class="accordion-item bg-darker text-light rounded-0 border-0 mb-2 animate__animated animate__fadeInUp" style="animation-delay: <?php echo esc_attr($index * 0.1); ?>s;">
+                        <h3 class="accordion-header" id="heading-<?php echo esc_attr($index); ?>">
+                            <button class="accordion-button collapsed bg-darker text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo esc_attr($index); ?>" aria-expanded="false" aria-controls="collapse-<?php echo esc_attr($index); ?>">
+                                <?php echo esc_html($question_text); ?>
+                            </button>
+                        </h3>
+                        <div id="collapse-<?php echo esc_attr($index); ?>" class="accordion-collapse collapse" aria-labelledby="heading-<?php echo esc_attr($index); ?>" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <?php echo esc_html($answer_text); ?>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                    $index++;
+                endwhile;
+            endif;
+            ?>
+        </div>
+    </section>
+
+</main>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -278,3 +340,7 @@ get_footer();
         });
     });
 </script>
+
+<?php
+get_footer();
+?>

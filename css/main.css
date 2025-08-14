@@ -1106,34 +1106,6 @@ footer {
   }
 }
 
-/*
- * # NEWSLETTER SECTION #
- * ----------------------------------------------------
- */
-.newsletter-section {
-  .input-group {
-    input {
-      background-color: var(--bg-dark);
-      border-color: var(--border-dark);
-      color: var(--txt-light);
-
-      &:focus {
-        background-color: var(--bg-dark);
-        border-color: var(--golden-color);
-        box-shadow: 0 0 0 0.25rem rgba(var(--golden-color-rgb), 0.25);
-        color: var(--txt-light);
-      }
-
-      &::placeholder {
-        color: var(--txt-muted);
-      }
-    }
-
-    .btn {
-      font-weight: bold;
-    }
-  }
-}
 
 .btn-outline-primary {
   &:hover {

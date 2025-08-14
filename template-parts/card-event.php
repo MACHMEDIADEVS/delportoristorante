@@ -25,7 +25,7 @@ if ($date_hour_event) {
         if ($date_object) {
             $month = $date_object->format('M');
             $day = $date_object->format('d');
-            
+
             // Comparamos si la fecha del evento es anterior a la fecha actual
             if ($date_object < new DateTime()) {
                 $button_text = __('Finished', 'del-porto-ristorante');
@@ -43,14 +43,18 @@ $image_src = has_post_thumbnail($event_id) ? get_the_post_thumbnail_url($event_i
 
 <div class="card event-card h-100 border-0 rounded-0 w-100">
     <div class="position-relative">
-        <img src="<?php echo esc_url($image_src); ?>" class="card-img-top rounded-0" alt="<?php the_title_attribute(); ?>" />
+        <a href="<?php the_permalink(); ?>">
+            <img src="<?php echo esc_url($image_src); ?>" class="card-img-top rounded-0" alt="<?php the_title_attribute(); ?>" />
+        </a>
         <div class="event-date position-absolute top-0 start-0 p-2 text-center">
             <span class="d-block"><?php echo esc_html($month); ?></span>
             <span class="d-block"><?php echo esc_html($day); ?></span>
         </div>
     </div>
     <div class="card-body rounded-0 d-flex flex-column justify-content-between">
-        <h5 class="card-title text-center"><?php echo nl2br(get_the_title()); ?></h5>
+        <a href="<?php the_permalink(); ?>" class="text-decoration-none">
+            <h5 class="card-title text-center"><?php echo nl2br(get_the_title()); ?></h5>
+        </a>
         <div class="mt-auto">
             <a href="<?php the_permalink(); ?>" class="btn btn-sm <?php echo esc_attr($button_class); ?> w-100 fw-bold" style="text-transform: uppercase;" <?php echo $button_disabled; ?>>
                 <?php echo esc_html($button_text); ?>
