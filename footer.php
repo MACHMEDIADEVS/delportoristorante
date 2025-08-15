@@ -26,6 +26,10 @@
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 
+		.padd-nav {
+			padding: 2rem;
+		}
+
 		.nav-pills {
 			.nav-item {
 				.nav-link {
@@ -60,6 +64,7 @@
 		#floating-app-menu {
 			width: 100vw;
 			bottom: 0px;
+			left: 53%;
 			max-height: 8vh;
 			border-radius: 0px;
 			padding: 0.5rem;
@@ -69,6 +74,10 @@
 			.nav-pills {
 				gap: 0.2rem;
 				justify-content: space-evenly;
+			}
+
+			.padd-nav {
+				padding: 0.5rem !important;
 			}
 
 			ul {
@@ -95,15 +104,23 @@
 	<div class="footer-content-wrapper">
 		<div class="row g-2 p-4">
 			<!-- BRAND -->
-			<div class="col-lg-3 footer-content-col">
+			<div class="col-lg-3 footer-content-col justify-content-center">
 				<div class="footer-grid">
-					<div class="footer-block footer-contact-info">
+					<div class="footer-block footer-contact-info text-center">
 						<?php if (function_exists('the_custom_logo')) {
 							the_custom_logo();
 						} ?>
 					</div>
 				</div>
+				<div class="offcanvas-footer mt-auto border-offcanvas-border text-center">
+					<div class="social-icons d-flex gap-3 justify-content-center">
+						<a href="https://www.facebook.com/delportoristorantenj" class="text-offcanvas-txt-secondary"><i class="bi bi-facebook fs-4"></i></a>
+						<a href="https://www.instagram.com/delportoitalianristorante" class="text-offcanvas-txt-secondary"><i class="bi bi-instagram fs-4"></i></a>
+						<a href="https://www.tiktok.com/@delportoristorante" class="text-offcanvas-txt-secondary"><i class="bi bi-tiktok fs-4"></i></a>
+					</div>
+				</div>
 			</div>
+
 			<!-- INFO -->
 			<div class="col-lg-9 footer-content-col">
 				<div class="footer-grid">
@@ -135,8 +152,8 @@
 						<h5 class="widget-title text-light"><?php esc_html_e('Contact Us', 'del-porto-ristorante'); ?></h5>
 						<p class="text-golden">
 							<a href="mailto:delportorestaurant@gmail.com">delportorestaurant@gmail.com</a><br>
-							<a href="tel:+19084098424">(908) 409-8424</a><br>
-							91 Elizabeth Ave, Elizabeth, NJ 07206
+							<a href="tel:+19084098424">+1 (908) 409-8424</a><br>
+							<a href="https://www.google.com/maps/place/DEL+PORTO+ITALIAN+RESTAURANT/@40.6464554,-74.1911754,266m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c24d8e14e3043d:0xcf77f8083a6bb62!8m2!3d40.6464544!4d-74.1905317!16s%2Fg%2F11txntdhyy?entry=ttu&g_ep=EgoyMDI1MDgxMi4wIKXMDSoASAFQAw%3D%3D">91 Elizabeth Ave, Elizabeth, NJ 07206</a>
 						</p>
 					</div>
 

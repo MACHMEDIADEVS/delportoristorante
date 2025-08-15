@@ -8,7 +8,17 @@
 
 if (has_nav_menu('navigation-menu')) :
 ?>
-    <nav id="floating-app-menu" class="floating-app-menu fixed-bottom p-3 row">
+    <style>
+        @media (max-width: 768px) {
+            .floating-app-menu {
+                .p-3 {
+                    padding: 0.5rem !important;
+                }
+            }
+        }
+    </style>
+
+    <nav id="floating-app-menu" class="floating-app-menu fixed-bottom padd-nav row">
         <div class="col">
             <?php
             wp_nav_menu(array(
@@ -19,11 +29,6 @@ if (has_nav_menu('navigation-menu')) :
                 'walker'         => new WP_Bootstrap_Navwalker(),
             ));
             ?>
-        </div>
-        <div class="col-auto">
-            <a href="tel:<?php echo esc_attr($phone_link); ?>" class="phone-icon-btn ms-auto">
-                <i class="bi bi-telephone-fill"></i>
-            </a>
         </div>
     </nav>
 

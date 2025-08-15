@@ -134,24 +134,25 @@ $our_packages = get_field('our_packages');
             <div class="row justify-content-center mb-5 text-center animate-on-scroll">
                 <div class="col-lg-8">
                     <h2 class="text-golden fw-bold"><?php esc_html_e('Host Your Event at Del Porto', 'del-porto-ristorante'); ?></h2>
-                    <p class="lead fw-bold text-light"><?php esc_html_e('Italian Flavors. Personalized Service. Unforgettable Moments.', 'del-porto-ristorante'); ?></p>
+                    <p class="lead fw-bold text-light"><?php esc_html_e('Italian Flavors | Personalized Service | Unforgettable Moments', 'del-porto-ristorante'); ?></p>
                     <br>
                     <p class="lead-seo text-light mb-4"><?php esc_html_e('Plan your next celebration at Del Porto Ristorante with curated Italian menus, tailored event packages, and expert service for gatherings from 15 to 120 guests.', 'del-porto-ristorante'); ?></p>
                 </div>
+                 <div class="long-description">
+                        <p><?php esc_html_e('Thank you for considering Del Porto Italian Ristorante to host your next event. Whether it\'s an intimate gathering, a milestone celebration, or a corporate meeting, we offer curated Italian menus, elegant service, and personalized packages to ensure your event is seamless and memorable.', 'del-porto-ristorante'); ?></p>
+                        <p><?php esc_html_e('Choose from lunch or dinner menus, buffet or plated options, open bar or custom drink menus and let our team handle the rest.', 'del-porto-ristorante'); ?></p>
+                    </div>
             </div>
 
             <div class="row justify-content-center mb-5 animate-on-scroll">
                 <div class="col-lg-8 text-center">
 
-                    <div class="long-description">
-                        <p><?php esc_html_e('Thank you for considering Del Porto Italian Ristorante to host your next event. Whether it\'s an intimate gathering, a milestone celebration, or a corporate meeting, we offer curated Italian menus, elegant service, and personalized packages to ensure your event is seamless and memorable.', 'del-porto-ristorante'); ?></p>
-                        <p><?php esc_html_e('Choose from lunch or dinner menus, buffet or plated options, open bar or custom drink menus—and let our team handle the rest.', 'del-porto-ristorante'); ?></p>
-                    </div>
+                   
                 </div>
             </div>
 
             <section class="event-process-section my-5 animate-on-scroll">
-                <h2 class="text-golden text-center mb-4"><?php esc_html_e('Steps Booking Process', 'del-porto-ristorante'); ?></h2>
+                <h2 class="text-golden text-center mb-4"><?php esc_html_e('3 Steps Booking Process', 'del-porto-ristorante'); ?></h2>
                 <div class="row text-center g-4">
                     <div class="col-md-4 animate__animated animate__fadeInUp">
                         <div class="card h-100 bg-darker text-light rounded-0 bg-dark text-white border-golden">

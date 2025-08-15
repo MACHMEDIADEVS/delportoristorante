@@ -159,18 +159,17 @@ get_header(); ?>
             $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
             $menu_page_title = get_field('title');
             $menu_page_subtitle = get_field('subtitle');
-            $display_title = !empty($menu_page_title) ? $menu_page_title : get_the_title();
 
             // Llamamos a la plantilla del Hero y le pasamos los datos.
             get_template_part('template-parts/hero/hero-black', null, [
                 'hero_image_url' => $featured_image_url,
-                'hero_title'     => $display_title,
+                'hero_title'     => $menu_page_title,
             ]);
             ?>
 
             <article id="post-<?php the_ID(); ?>" <?php post_class('menu-article container py-5'); ?>>
                 <header class="entry-header text-center mb-5">
-                    <h2 class="entry-title text-light fw-bold"><?php echo esc_html($display_title); ?></h2>
+                    <h2 class="entry-title text-light fw-bold"><?php echo esc_html($menu_page_title); ?></h2>
                     <?php if (!empty($menu_page_subtitle)) : ?>
                         <p class="lead text-muted"><?php echo esc_html($menu_page_subtitle); ?></p>
                     <?php endif; ?>

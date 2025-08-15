@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Catering
+ * Template Name: Gift Card
  *
  * @package Del_Porto_Ristorante
  */
@@ -9,18 +9,16 @@
 get_header();
 
 // Obtener los campos de ACF
-$info_catering = get_field('info-catering');
-$title_page_h1 = $info_catering['title_page_h1'] ?? '';
-$subtitle_text_h3 = $info_catering['subtitle_text_h3'] ?? '';
-$editor_description_page = $info_catering['editor_description_page'] ?? '';
-$cards_services = $info_catering['cards_services'] ?? [];
+$info_gift_card = get_field('info-gift_card');
+$title_page_h1 = $info_gift_card['title_page_h1'] ?? '';
+$subtitle_text_h3 = $info_gift_card['subtitle_text_h3'] ?? '';
+$editor_description_page = $info_gift_card['editor_description_page'] ?? '';
+$cards_services = $info_gift_card['cards_services'] ?? [];
 
-$info_contact_catering = get_field('info_contact_catering');
-$email_dpr_link = $info_contact_catering['email_dpr_link'] ?? '';
-$number_phone_dpr = $info_contact_catering['number_phone_dpr'] ?? '';
-$buttons_catering_cta = $info_contact_catering['buttons_catering_cta'] ?? [];
+$info_contact_gift_card = get_field('info_contact_gift_card');
+$buttons_gift_card_cta = $info_contact_gift_card['buttons_gift_card_cta'] ?? [];
 
-$closing_text_catering = get_field('closing_text_catering');
+$closing_text_gift_card = get_field('closing_text_gift_card');
 $banner_lateral_url = get_field('banner_lateral');
 ?>
 
@@ -29,14 +27,14 @@ $banner_lateral_url = get_field('banner_lateral');
    # Estilos para la Plantilla de Página "Catering"
    -------------------------------------------------------------- */
 
-    #page-catering-template {
+    #page-gift_card-template {
         color: var(--txt-light);
 
         .row {
             min-height: calc(100vh - 6em);
         }
 
-        .catering-content-col {
+        .gift_card-content-col {
             background-color: var(--bg-dark);
             color: var(--txt-light);
             padding: 5rem 4rem;
@@ -49,7 +47,7 @@ $banner_lateral_url = get_field('banner_lateral');
                 animation: fadeInUp 0.8s ease-out forwards;
             }
 
-            .catering-intro {
+            .gift_card-intro {
                 margin-bottom: 2.5rem;
                 animation-delay: 0.2s;
 
@@ -72,7 +70,7 @@ $banner_lateral_url = get_field('banner_lateral');
                 }
             }
 
-            .catering-features {
+            .gift_card-features {
                 margin-bottom: 2.5rem;
                 animation-delay: 0.4s;
 
@@ -116,7 +114,7 @@ $banner_lateral_url = get_field('banner_lateral');
                 }
             }
 
-            .catering-cta {
+            .gift_card-cta {
                 background-color: var(--bg-darker);
                 border: 1px solid var(--border-dark);
                 padding: 2rem;
@@ -165,7 +163,7 @@ $banner_lateral_url = get_field('banner_lateral');
                 }
             }
 
-            .catering-closing {
+            .gift_card-closing {
                 margin-top: 2.5rem;
                 text-align: center;
                 font-style: italic;
@@ -174,7 +172,7 @@ $banner_lateral_url = get_field('banner_lateral');
             }
         }
 
-        .catering-image-col {
+        .gift_card-image-col {
             background-size: cover;
             background-position: center;
             min-height: 500px;
@@ -211,8 +209,8 @@ $banner_lateral_url = get_field('banner_lateral');
     }
 
     @media (max-width: 991.98px) {
-        #page-catering-template {
-            .catering-content-col {
+        #page-gift_card-template {
+            .gift_card-content-col {
                 padding: 4rem 1.5rem;
 
                 h1 {
@@ -224,11 +222,11 @@ $banner_lateral_url = get_field('banner_lateral');
 </style>
 
 <main id="primary" class="site-main">
-    <div id="page-catering-template">
+    <div id="page-gift_card-template">
         <div class="row g-0">
-            <div class="col-lg-7 catering-content-col">
+            <div class="col-lg-7 gift_card-content-col">
 
-                <div class="catering-intro pt-5 animate__animated animate__fadeInUp">
+                <div class="gift_card-intro pt-5 animate__animated animate__fadeInUp">
                     <?php if ($title_page_h1) : ?>
                         <h1 class="text-golden"><?php echo esc_html($title_page_h1); ?></h1>
                     <?php endif; ?>
@@ -240,53 +238,22 @@ $banner_lateral_url = get_field('banner_lateral');
                     </div>
                 </div>
 
-                <div class="catering-features animate__animated animate__fadeInUp animate__delay-0-5s">
-                    <?php if ($cards_services) : ?>
-                        <div class="menu-grid row g-3">
-                            <?php foreach ($cards_services as $service) : ?>
-                                <div class="col-lg-4">
-                                    <div class="card bg-dark text-light border-golden h-100">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title text-golden"><?php echo esc_html($service['title_service']); ?></h5>
-                                            <p class="card-text small"><?php echo esc_html($service['description_service']); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                    <p class="tray-guide"><strong>Half Tray:</strong> Serves 8 people | <strong>Full Tray:</strong> Serves 16 people</p>
-                    <div class="notice-bar">
-                        <span>Free Delivery</span> |
-                        <span>Call 2 Days in Advance</span> |
-                        <span>Tax Not Included</span>
-                    </div>
-                </div>
-
-                <div class="catering-cta animate__animated animate__fadeInUp animate__delay-0-7s">
-                    <div class="contact-info">
-                        <?php if ($number_phone_dpr) : ?>
-                            <p><strong>Call Now to Place Your Order:</strong> <a href="tel:<?php echo esc_attr($number_phone_dpr); ?>"><?php echo esc_html($number_phone_dpr); ?></a></p>
-                        <?php endif; ?>
-                        <?php if ($email_dpr_link) : ?>
-                            <p><strong>Email Us:</strong> <a href="mailto:<?php echo esc_attr($email_dpr_link); ?>"><?php echo esc_html($email_dpr_link); ?></a></p>
-                        <?php endif; ?>
-                    </div>
+                <div class="gift_card-cta animate__animated animate__fadeInUp animate__delay-0-7s">
                     <div class="cta-buttons">
-                        <?php foreach ($buttons_catering_cta as $button) : ?>
+                        <?php foreach ($buttons_gift_card_cta as $button) : ?>
                             <a href="<?php echo esc_url($button['link_button']); ?>" class="btn btn-primary" data-text="<?php echo esc_attr($button['text_button']); ?>"><?php echo esc_html($button['text_button']); ?></a>
                         <?php endforeach; ?>
                     </div>
                 </div>
 
-                <?php if ($closing_text_catering) : ?>
-                    <div class="catering-closing animate__animated animate__fadeInUp animate__delay-0-9s">
-                        <p><?php echo esc_html($closing_text_catering); ?></p>
+                <?php if ($closing_text_gift_card) : ?>
+                    <div class="gift_card-closing animate__animated animate__fadeInUp animate__delay-0-9s">
+                        <p><?php echo esc_html($closing_text_gift_card); ?></p>
                     </div>
                 <?php endif; ?>
             </div>
 
-            <div class="col-lg-5 d-none d-lg-block catering-image-col" style="background-image: url('<?php echo esc_url($banner_lateral_url); ?>');">
+            <div class="col-lg-5 d-none d-lg-block gift_card-image-col" style="background-image: url('<?php echo esc_url($banner_lateral_url); ?>');">
             </div>
         </div>
     </div>
@@ -299,8 +266,8 @@ $banner_lateral_url = get_field('banner_lateral');
             if (have_rows('question')) :
                 $index = 0;
                 while (have_rows('question')) : the_row();
-                    $question_text = get_sub_field('question_catering');
-                    $answer_text = get_sub_field('answers_catering');
+                    $question_text = get_sub_field('question_gift_card');
+                    $answer_text = get_sub_field('answers_gift_card');
             ?>
                     <div class="accordion-item bg-darker text-light rounded-0 border-0 mb-2 animate__animated animate__fadeInUp" style="animation-delay: <?php echo esc_attr($index * 0.1); ?>s;">
                         <h3 class="accordion-header" id="heading-<?php echo esc_attr($index); ?>">
@@ -326,7 +293,7 @@ $banner_lateral_url = get_field('banner_lateral');
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.catering-cta .btn');
+        const buttons = document.querySelectorAll('.gift_card-cta .btn');
 
         buttons.forEach(button => {
             button.addEventListener('mousemove', function(e) {

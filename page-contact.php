@@ -58,7 +58,6 @@ $main_info = get_field('main_info');
 
                 <div class="col-lg-6 animate__animated animate__fadeInUp animate__delay-0-3s">
                     <div class="contact-info-block p-4 bg-darker">
-                        <h3 class="mb-4 text-golden">Contact Us</h3>
                         <?php if ($description_contact) : ?>
                             <div class="contact-description mb-4">
                                 <?php echo $description_contact; ?>

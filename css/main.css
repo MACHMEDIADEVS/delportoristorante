@@ -5,6 +5,10 @@ header {
   top: -2px !important;
 }
 
+.sangria {
+  margin-left: 2rem;
+}
+
 #masthead.site-header {
   margin-bottom: -12dvh;
   padding-top: 0.75rem;
@@ -248,7 +252,7 @@ footer {
       .custom-logo {
         max-width: 180px;
         height: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
     }
 
