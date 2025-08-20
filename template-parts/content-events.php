@@ -10,7 +10,9 @@ $section_title = get_field('sctn_events_ttlh4');
 $upcoming_events = new WP_Query(array(
     'post_type'      => 'event',
     'posts_per_page' => -1,
-    'orderby'        => 'date',
+    'post_status'    => 'publish',
+    'meta_key'       => 'main_data_date_hour_event',
+    'orderby'        => 'meta_value_num',
     'order'          => 'DESC',
 ));
 ?>
@@ -18,7 +20,7 @@ $upcoming_events = new WP_Query(array(
 <section class="events-carousel-section py-5 bg-darker animate__animated animate__fadeInUp">
     <div class="container">
         <?php if ($section_title) : ?>
-            <h4 class="text-center text-golden"><?php echo esc_html($section_title); ?></h4>
+            <h4 class="text-center text-golden pt-3"><?php echo esc_html($section_title); ?></h4>
         <?php endif; ?>
         <?php if ($upcoming_events->have_posts()) : ?>
             <div class="swiper events-swiper pt-5">

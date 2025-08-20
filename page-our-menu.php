@@ -46,9 +46,10 @@ get_header();
                 <?php
                 $menus_query = new WP_Query(array(
                     'post_type'      => 'menu',
-                    'posts_per_page' => -1, // Muestra todos los menús
+                    'posts_per_page' => -1,
                     'post_status'    => 'publish',
-                    'orderby'        => 'title',
+                    'meta_key'       => 'order_page_menu', // Campo numérico para ordenar
+                    'orderby'        => 'meta_value_num',  // Ordenar por el valor numérico
                     'order'          => 'ASC',
                 ));
 

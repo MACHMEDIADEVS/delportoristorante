@@ -1351,3 +1351,11 @@ footer {
 }
 
 
+/*
+ * # POPUP MAKER FIX #
+ * ----------------------------------------------------
+ */
+#pum-container,
+.pum-overlay {
+    z-index: 99999 !important;
+}

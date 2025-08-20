@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template Name: Contact
  *
@@ -58,6 +57,7 @@ $main_info = get_field('main_info');
 
                 <div class="col-lg-6 animate__animated animate__fadeInUp animate__delay-0-3s">
                     <div class="contact-info-block p-4 bg-darker">
+                        <h3 class="mb-4 text-golden">Contact Us</h3>
                         <?php if ($description_contact) : ?>
                             <div class="contact-description mb-4">
                                 <?php echo $description_contact; ?>
@@ -86,7 +86,7 @@ $main_info = get_field('main_info');
                         <?php endif; ?>
 
                         <?php if (!empty($main_info['phone_contact'])) : ?>
-                            <a href="tel:<?php echo esc_attr($main_info['phone_contact']); ?>" class="btn btn-primary btn-lg w-100 mt-4 mt-5">
+                            <a href="tel:<?php echo esc_attr($main_info['phone_contact']); ?>" class="btn btn-primary btn-lg w-100 mt-4">
                                 <i class="bi bi-telephone-fill me-2"></i>
                                 <?php echo esc_html($main_info['phone_contact']); ?>
                             </a>
@@ -97,8 +97,22 @@ $main_info = get_field('main_info');
         </div>
 
         <section class="contact-map-section animate__animated animate__fadeInUp animate__delay-0-5s">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.238549646487!2d-74.20815182399997!3d40.73979063711913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25143a9f939e1%3A0x6b4c107f9c2d159a!2s91%20Elizabeth%20Ave%2C%20Elizabeth%2C%20NJ%2007206%2C%20USA!5e0!3m2!1sen!2shu!4v1722971212879!5m2!1sen!2shu" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-8 map-column">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4631.532108724817!2d-74.19310662294293!3d40.646458441623764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24d8e14e3043d%3A0xcf77f8083a6bb62!2sDEL%20PORTO%20ITALIAN%20RESTAURANT!5e1!3m2!1ses-419!2shn!4v1755365727113!5m2!1ses-419!2shn" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 map-info-column bg-dark p-5 d-flex flex-column justify-content-center">
+                        <h3 class="text-golden fw-bold">Del Porto Ristorante</h3>
+                        <?php if ($main_info) : ?>
+                            <p class="text-white mb-2"><i class="bi bi-geo-alt-fill me-2 text-golden"></i><?php echo esc_html($main_info['address_contact']); ?></p>
+                            <p class="text-white mb-2"><i class="bi bi-telephone-fill me-2 text-golden"></i><a href="tel:<?php echo esc_attr($main_info['phone_contact']); ?>"><?php echo esc_html($main_info['phone_contact']); ?></a></p>
+                            <p class="text-white mb-0"><i class="bi bi-envelope-fill me-2 text-golden"></i><a href="mailto:<?php echo esc_attr($main_info['email_contact']); ?>"><?php echo esc_html($main_info['email_contact']); ?></a></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </section>
 

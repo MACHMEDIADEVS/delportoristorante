@@ -21,12 +21,12 @@ $button_disabled = '';
 
 if ($date_hour_event) {
     try {
-        $date_object = DateTime::createFromFormat('m/d/Y', $date_hour_event);
+        // Se corrige el formato para que coincida con la base de datos (Ymd)
+        $date_object = DateTime::createFromFormat('Ymd', $date_hour_event);
         if ($date_object) {
             $month = $date_object->format('M');
             $day = $date_object->format('d');
-
-            // Comparamos si la fecha del evento es anterior a la fecha actual
+            
             if ($date_object < new DateTime()) {
                 $button_text = __('Finished', 'del-porto-ristorante');
                 $button_class = 'btn-secondary';

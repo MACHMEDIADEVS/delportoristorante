@@ -13,9 +13,9 @@ if ($slider_experiences) :
 
     <style>
         /*
- * # HAPPY HOUR SLIDER #
- * ----------------------------------------------------
- */
+        * # HAPPY HOUR SLIDER #
+        * ----------------------------------------------------
+        */
         .happy-hour-slider-section {
             .happy-hour-slide {
                 height: 40vh;
@@ -89,6 +89,8 @@ if ($slider_experiences) :
             }
         }
     </style>
+
+    <h4 class="text-center text-golden py-4">DEL PORTO EXPERIENCES</h4>
 
     <section class="happy-hour-slider-section bg-dark text-light animate__animated animate__fadeInUp">
         <div class="swiper happy-hour-swiper">

@@ -39,6 +39,8 @@ get_header();
         // Llama a la plantilla para el Sub-Hero
         get_template_part('template-parts/content', 'make-event');
 
+        get_template_part('template-parts/content', 'blogs');
+
         // Llama a la plantilla para la sección de Horario de Operación
         get_template_part('template-parts/content', 'hours');
 

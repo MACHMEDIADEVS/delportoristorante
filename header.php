@@ -93,7 +93,7 @@
 		width: 100%;
 		height: 100%;
 		background-color: var(--bg-dark);
-		z-index: 99999;
+		z-index: 101;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -157,7 +157,7 @@
 							$phone_number_display = get_theme_mod('del_porto_phone_number', 'BOOK VENUE');
 							$phone_number_link    = preg_replace('/\s+/', '', $phone_number_display);
 							?>
-							<a href="tel:<?php echo esc_attr($phone_number_link); ?>" class="btn btn-sm btn-outline-primary d-md-none site-header-action-btn site-header-action-btn-phone-mobile text-white" aria-label="<?php esc_attr_e('Call us', 'del-porto-ristorante'); ?>">
+							<a href="tel:+19084098424" class="btn btn-sm btn-outline-primary d-md-none site-header-action-btn site-header-action-btn-phone-mobile text-white" aria-label="<?php esc_attr_e('Call us', 'del-porto-ristorante'); ?>">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M1.885.511a1.745.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.28 1.465l-.413 1.033a.698.698 0 0 0 .157.826l1.285 1.286a.698.698 0 0 0 .826.157l1.033-.413a1.437.437 0 0 1 1.465.28l2.305 1.769a1.745.745 0 0 1 .163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
 								</svg>
@@ -194,7 +194,7 @@
 						$phone_number_display = get_theme_mod('del_porto_phone_number', 'BOOK VENUE');
 						$phone_number_link    = preg_replace('/\s+/', '', $phone_number_display);
 						?>
-						<a href="tel:<?php echo esc_attr($phone_number_link); ?>" class="btn btn-sm btn-outline-light d-none d-md-inline-block me-2 site-header-action-btn" aria-label="<?php printf(esc_attr__('Call us at %s', 'del-porto-ristorante'), esc_attr($phone_number_display)); ?>">
+						<a href="https://www.toasttab.com/invoice/lead?rx=19209e5d-b110-4f2c-a889-a719850ed967&ot=d22e38cc-6a2f-4963-8fa3-1bfcc0b6882b" class="btn btn-sm btn-outline-light d-none d-md-inline-block me-2 site-header-action-btn" aria-label="<?php printf(esc_attr__('Call us at %s', 'del-porto-ristorante'), esc_attr($phone_number_display)); ?>">
 							<?php echo esc_html($phone_number_display); ?>
 						</a>
 

@@ -1,8 +1,7 @@
 <?php
+
 /**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ * The template for displaying 404 pages (Not Found)
  *
  * @package Del_Porto_Ristorante
  */
@@ -10,51 +9,39 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<style>
+	/*
+ * # 404 PAGE #
+ * ----------------------------------------------------
+ */
+	.not-found-page {
+		min-height: 80vh;
+		/* Ensures the content is centered on a taller screen */
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'del-porto-ristorante' ); ?></h1>
-			</header><!-- .page-header -->
+		.container {
+			h1.display-1 {
+				font-size: 8rem;
+			}
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'del-porto-ristorante' ); ?></p>
+			h2.display-4 {
+				font-size: 3rem;
+			}
+		}
+	}
+</style>
 
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'del-porto-ristorante' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$del_porto_ristorante_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'del-porto-ristorante' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$del_porto_ristorante_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+<div id="primary" class="content-area">
+	<main id="main" class="site-main not-found-page text-light d-flex align-items-center justify-content-center text-center">
+		<div class="container py-5">
+			<h1 class="display-1 fw-bold text-golden">404</h1>
+			<h2 class="display-4 fw-bold">Page Not Found</h2>
+			<p class="lead mt-3">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+			<a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-primary btn-lg mt-4 text-uppercase">
+				Go to Homepage
+			</a>
+		</div>
+	</main>
+</div>
 
 <?php
 get_footer();

@@ -217,3 +217,31 @@ body {
 }
 
 /* Agrega aquí cualquier otro estilo base que aplique a todo el tema */
+/*
+ * # FIX PARA POPUP MAKER #
+ * ----------------------------------------------------
+ */
+
+/* Asegura que el pop-up sea visible y tenga una posición correcta */
+.pum-container.pum-active,
+.pum-overlay.pum-active {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 100000 !important; /* Un valor muy alto para sobresalir */
+}
+
+/* Fuerza al contenido del pop-up a ser visible */
+.pum-content {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Corrige la posición y tamaño del contenedor */
+.pum-popup.pum-theme-del-porto {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}

@@ -45,3 +45,4 @@ function restrict_file_uploads($mime_types)
 	return $mime_types;
 }
 add_filter('upload_mimes', 'restrict_file_uploads');
+
