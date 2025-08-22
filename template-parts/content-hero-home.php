@@ -2,7 +2,6 @@
 
 /**
  * Template part for displaying the Hero Home section.
- *
  * @package Del_Porto_Ristorante
  */
 
