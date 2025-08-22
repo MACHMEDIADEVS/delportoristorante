@@ -90,7 +90,11 @@ if ($slider_experiences) :
         }
     </style>
 
-    <h4 class="text-center text-golden py-4">DEL PORTO EXPERIENCES</h4>
+    <div class="container text-center py-4">
+        <h4 class="text-center text-golden">DEL PORTO EXPERIENCES</h4>
+        <p>Ogni settimana è una festa da Del Porto - Sapori, amici e momenti da ricordare
+            Every week is a celebration at Del Porto - Flavors, friends, and moments to remember</p>
+    </div>
 
     <section class="happy-hour-slider-section bg-dark text-light animate__animated animate__fadeInUp">
         <div class="swiper happy-hour-swiper">

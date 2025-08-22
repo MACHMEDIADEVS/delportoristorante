@@ -39,6 +39,9 @@ get_header();
             <div class="hero-image-overlay"></div>
             <div class="container position-relative z-index-1">
                 <h1 class="display-1 text-uppercase fw-bold"><?php the_title(); ?></h1>
+                <?php if (get_field('subtitle-page')) : ?>
+                    <p class="lead mt-3"><?php echo esc_html(get_field('subtitle-page')); ?></p>
+                <?php endif; ?>
             </div>
         </section>
 

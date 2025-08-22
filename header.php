@@ -138,7 +138,7 @@
 			?>
 		</div>
 	</div>
-	
+
 	<div id="page" class="site">
 
 
@@ -208,7 +208,7 @@
 
 		<div class="offcanvas offcanvas-start site-offcanvas-menu" tabindex="-1" id="offcanvasMainMenu" aria-labelledby="offcanvasMainMenuLabel">
 			<div class="offcanvas-header text-center position-relative">
-				<div class="position-absolute w-100 start-0">
+				<div class="position-absolute w-100 start-0 z-0">
 					<?php
 					if (has_custom_logo()) {
 						the_custom_logo();
@@ -220,18 +220,19 @@
 					}
 					?>
 				</div>
-				<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close menu', 'del-porto-ristorante'); ?>"></button>
+				<button type="button" class="btn-close ms-auto z-1" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close menu', 'del-porto-ristorante'); ?>" style="z-index: 100;">
+				</button>
 			</div>
 			<div class="offcanvas-body">
 				<?php
 				wp_nav_menu(
 					array(
 						'theme_location' => 'main-menu',
-						'menu_id'        => 'main-menu-offcanvas',
-						'menu_class'     => 'nav flex-column site-offcanvas-nav',
-						'container'      => false,
-						'depth'          => 2,
-						'walker'         => new WP_Bootstrap_Navwalker(),
+						'menu_id' => 'main-menu-offcanvas',
+						'menu_class' => 'nav flex-column site-offcanvas-nav',
+						'container' => false,
+						'depth' => 2,
+						'walker' => new WP_Bootstrap_Navwalker(),
 					)
 				);
 				?>

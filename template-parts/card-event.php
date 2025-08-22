@@ -21,8 +21,8 @@ $button_disabled = '';
 
 if ($date_hour_event) {
     try {
-        // Se corrige el formato para que coincida con la base de datos (Ymd)
-        $date_object = DateTime::createFromFormat('Ymd', $date_hour_event);
+        // Se corrige el formato para que coincida con el Date Picker de ACF (m/d/Y)
+        $date_object = DateTime::createFromFormat('m/d/Y', $date_hour_event);
         if ($date_object) {
             $month = $date_object->format('M');
             $day = $date_object->format('d');

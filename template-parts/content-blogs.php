@@ -51,7 +51,8 @@
 
 <section class="blogs-carousel-section py-5 bg-darker animate__animated animate__fadeInUp">
     <div class="container">
-        <h2 class="text-center fw-bold text-golden pt-3" style="text-transform: uppercase;"><?php esc_html_e('Elizabeth Journal', 'del-porto-ristorante'); ?></h2>
+        <h2 class="text-center fw-bold text-golden pt-3" style="text-transform: uppercase;"><?php esc_html_e('Elizabeth Port Giornale', 'del-porto-ristorante'); ?></h2>
+        <p class="text-center text-white py-2">VENERDÌ 5 MAGGIO 2023</p>
         <?php
         $blogs_query = new WP_Query([
             'post_type'      => 'post',

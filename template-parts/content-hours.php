@@ -36,7 +36,7 @@
 </style>
 
 <section class="hours-of-operation-section py-5 bg-dark animate__animated animate__fadeInUp">
-    <div class="container text-center">
+    <div class="container text-center py-5">
         <div class="row justify-content-center">
             <div class="col">
                 <h2 class="mb-4 text-light animate__animated animate__fadeInUp">HOURS OF OPERATION</h2>

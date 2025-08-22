@@ -26,7 +26,7 @@ get_header();
 
         // Llama a la plantilla para la sección de Eventos
         get_template_part('template-parts/content', 'events');
-        
+
         // Llama a la plantilla para el Happy Hour
         get_template_part('template-parts/content', 'happy-hour');
 
@@ -39,13 +39,13 @@ get_header();
         // Llama a la plantilla para el Sub-Hero
         get_template_part('template-parts/content', 'make-event');
 
-        get_template_part('template-parts/content', 'blogs');
-
         // Llama a la plantilla para la sección de Horario de Operación
         get_template_part('template-parts/content', 'hours');
 
         // Llama a la plantilla para el Catering
         get_template_part('template-parts/content', 'catering');
+
+        get_template_part('template-parts/content', 'blogs');
 
         // Llama a la plantilla para la sección de Newsletter
         get_template_part('template-parts/content', 'newsletter');

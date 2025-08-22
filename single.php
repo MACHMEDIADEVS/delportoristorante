@@ -34,8 +34,7 @@ get_header(); ?>
 
 		.blog-content-col,
 		.blog-aside-col {
-			margin-top: -60px;
-			/* Superpone el contenido sobre el hero */
+
 			position: relative;
 			z-index: 10;
 
@@ -65,9 +64,64 @@ get_header(); ?>
 		}
 	}
 
+	.single-blog-page .entry-content {
+
+		/* This rule makes all images, videos, and figures responsive */
+		img,
+		figure,
+		video,
+		embed,
+		iframe,
+		object {
+			max-width: 100%;
+			height: auto;
+		}
+
+		/* Adjusts wide and full-width blocks from Gutenberg */
+		.wp-block-cover,
+		.wp-block-image.alignwide,
+		.wp-block-image.alignfull {
+			margin-left: -50px;
+			margin-right: -50px;
+			max-width: unset;
+		}
+
+		/* Ensures tables are responsive */
+		table {
+			max-width: 100%;
+			overflow-x: auto;
+		}
+	}
+
 	h1 {
 		font-size: 2rem !important;
 		padding: 1rem 0rem !important;
+	}
+
+	/* RESPONSIVE - IPHONE */
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 1.3rem !important;
+			padding: 1rem 0rem !important;
+		}
+
+		.single-blog-page {
+
+			.entry-content {
+
+
+				h2 {
+					font-size: 1.2rem !important;
+				}
+
+				h3,
+				h4,
+				h5,
+				h6 {
+					font-size: 1.1rem !important;
+				}
+			}
+		}
 	}
 </style>
 
@@ -87,8 +141,8 @@ get_header(); ?>
 			</section>
 
 			<div class="container py-5">
-				<div class="row g-5">
-					<div class="col-lg-8 blog-content-col">
+				<div class="row">
+					<div class="col-lg-9 blog-content-col">
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class('bg-dark p-4 p-md-5'); ?>>
 
@@ -108,7 +162,7 @@ get_header(); ?>
 						</article>
 					</div>
 
-					<div class="col-lg-4 blog-aside-col">
+					<div class="col-lg-3 blog-aside-col">
 						<aside id="secondary" class="widget-area">
 							<div class="bg-dark p-4 widget widget-social">
 								<h3 class="widget-title text-golden mb-3"><?php esc_html_e('Follow us:', 'del-porto-ristorante'); ?></h3>

@@ -232,7 +232,7 @@ get_header(); ?>
                                                 ?>
                                                 <li class="menu-item mb-3">
                                                     <div class="menu-item-header d-flex justify-content-between align-items-start">
-                                                        <h5 class="menu-item-name h6 fw-bold mb-0 me-2"><?php echo esc_html($plate_name); ?></h5>
+                                                        <h5 class="menu-item-name h6 fw-bold mb-0 me-2" style="color: #ab8547;"><?php echo esc_html($plate_name); ?></h5>
                                                         <?php if (!empty($price_display_output)) : ?>
                                                             <span class="menu-item-price fw-bold"><?php echo $price_display_output; ?></span>
                                                         <?php endif; ?>
@@ -249,6 +249,19 @@ get_header(); ?>
                         </div>
                     <?php else : ?>
                         <p><?php esc_html_e('No menu categories found for this menu.', 'del-porto-ristorante'); ?></p>
+                    <?php endif; ?>
+                </div>
+
+                <div class="order-online-btn-container text-center mt-5">
+                    <?php
+                    $txt_btn_order = get_field('txt_btn_order_online');
+                    $link_order_online = get_field('link_order_online');
+
+                    if ($txt_btn_order && $link_order_online) :
+                    ?>
+                        <a href="<?php echo esc_url($link_order_online); ?>" class="btn btn-primary btn-lg fw-bold" target="_blank">
+                            <?php echo esc_html($txt_btn_order); ?>
+                        </a>
                     <?php endif; ?>
                 </div>
 

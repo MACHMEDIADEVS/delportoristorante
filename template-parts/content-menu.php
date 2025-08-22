@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying the Menu Categories grid on the homepage.
  *
@@ -14,17 +15,9 @@ $menus_query = new WP_Query(array(
     'post_type'      => 'menu',
     'posts_per_page' => 8,
     'post_status'    => 'publish',
-    'meta_query'     => array(
-        array(
-            'key'     => 'homepage_carta',
-            'value'   => 1,
-            'compare' => '=',
-            'type'    => 'NUMERIC'
-        )
-    ),
+    'meta_key'       => 'order_page_menu', // Cambiado a 'order_page_menu'
     'orderby'        => 'meta_value_num',
-    'order'          => 'ASC', 
-    'meta_key'       => 'order_frontpage',
+    'order'          => 'ASC',
 ));
 ?>
 
