@@ -5,6 +5,26 @@
  *
  * @package Del_Porto_Ristorante
  */
+
+// Obtener el valor del campo
+$enable_font = get_field('enable_special_font');
+// Definir la clase condicionalmente
+$font_class = $enable_font ? 'unifraktur-cook-font' : '';
+
+$font_class = get_field('enable_special_font') ? 'unifraktur-cook-font' : '';
+$title_blog_homepage = get_field('title_blog_homepage');
+$date_or_text = get_field('date_or_text');
+$text_date = get_field('text_date');
+
+// Lógica para obtener la fecha o el texto
+if ($date_or_text) {
+    $date_output = esc_html($text_date);
+} else {
+    // Genera la fecha actual en italiano
+    $formatter = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+    $formatter->setPattern('EEEE d MMMM yyyy');
+    $date_output = strtoupper($formatter->format(time()));
+}
 ?>
 
 <style>
@@ -51,8 +71,8 @@
 
 <section class="blogs-carousel-section py-5 bg-darker animate__animated animate__fadeInUp">
     <div class="container">
-        <h2 class="text-center fw-bold text-golden pt-3" style="text-transform: uppercase;"><?php esc_html_e('Elizabeth Port Giornale', 'del-porto-ristorante'); ?></h2>
-        <p class="text-center text-white py-2">VENERDÌ 5 MAGGIO 2023</p>
+        <h2 class="text-center fw-bold text-golden pt-3 <?php echo esc_attr($font_class); ?>" style="text-transform: uppercase;"><?php echo esc_html($title_blog_homepage); ?></h2>
+        <p class="text-center text-white py-2"><?php echo $date_output; ?></p>
         <?php
         $blogs_query = new WP_Query([
             'post_type'      => 'post',

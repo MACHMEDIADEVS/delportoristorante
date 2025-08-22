@@ -46,3 +46,11 @@ function restrict_file_uploads($mime_types)
 }
 add_filter('upload_mimes', 'restrict_file_uploads');
 
+
+function del_porto_enqueue_special_font() {
+    // Verificar si estamos en la página de inicio y si la opción está activada
+    if (is_front_page() && get_field('enable_special_font')) {
+        wp_enqueue_style('unifraktur-cook-font', 'https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap', array(), null);
+    }
+}
+add_action('wp_enqueue_scripts', 'del_porto_enqueue_special_font');

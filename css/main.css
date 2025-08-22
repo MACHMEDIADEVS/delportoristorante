@@ -1,3 +1,9 @@
+.site-main {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+
 /*
  * HEADER  ----------------------------------------------------
  */
@@ -1110,7 +1116,6 @@ footer {
   }
 }
 
-
 .btn-outline-primary {
   &:hover {
     color: var(--golden-color) !important;
@@ -1350,12 +1355,11 @@ footer {
   overflow: auto; /* Agrega una barra de desplazamiento si el contenido excede el límite */
 }
 
-
 /*
  * # POPUP MAKER FIX #
  * ----------------------------------------------------
  */
 #pum-container,
 .pum-overlay {
-    z-index: 99999 !important;
+  z-index: 99999 !important;
 }
